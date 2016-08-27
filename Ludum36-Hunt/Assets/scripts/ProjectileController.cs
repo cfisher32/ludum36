@@ -11,10 +11,14 @@ public class ProjectileController : MonoBehaviour
 
 	void Awake()
 	{
-		//throwVector = transform.forward;
+		throwVector = transform.forward;
 		myRB = GetComponent<Rigidbody>();
 
-		myRB.AddForce(throwVector * throwSpeed);
+		//myRB.AddForce(throwVector * throwSpeed);
+	}
 
+	void OnCollisionEnter(Collision other)
+	{
+		Debug.Log(other.gameObject.name);
 	}
 }
