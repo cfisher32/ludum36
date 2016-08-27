@@ -1,4 +1,6 @@
- using UnityEngine;
+//cmf
+
+using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	public Plane targetPlane;
 	public Vector3 targetPoint;
 	public Vector3 throwVector = new Vector3(0, 1, 1);
+
+	public LayerMask throwLayerMask;
 
 	void Start()
 	{
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 			Ray targetRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 
-			if (Physics.Raycast(targetRay, out hit, 100.0f))
+			if (Physics.Raycast(targetRay, out hit, 100.0f, throwLayerMask))
 			{
 				//Debug.DrawLine(transform.position, hit.point);
 				Debug.DrawRay(playerThrowSpot.position, hit.point, Color.blue);

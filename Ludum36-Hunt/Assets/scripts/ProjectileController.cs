@@ -1,8 +1,11 @@
+//cmf
+
 using UnityEngine;
 using System.Collections;
 
 public class ProjectileController : MonoBehaviour
 {
+	//mass, drag per weapon
 
 	public float throwSpeed = 100.0f;
 	public Vector3 throwVector = new Vector3(0,1,1);
@@ -19,6 +22,11 @@ public class ProjectileController : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
 	{
-		Debug.Log(other.gameObject.name);
+		Debug.Log(other.gameObject.name + " tag: " + other.gameObject.tag);
+		if(other.gameObject.tag == "Hitable")
+		{
+			myRB.isKinematic = true;
+			myRB.useGravity = false;
+		}
 	}
 }
