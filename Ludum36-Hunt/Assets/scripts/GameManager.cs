@@ -3,15 +3,18 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public int Score { get; set; }
+	public int score { get; set; }
 	public bool playerIsDead { get; set; }
 	public Text scoreText;
 	public Text timerText;
 	public float roundLeft = 5.0f;
 	public bool roundOver = false;
+
+	public int scoreRequired = 5;
 
 	private static GameManager _instance;
 
@@ -31,12 +34,12 @@ public class GameManager : MonoBehaviour
 	void Awake()
 	{
 		_instance = this;
-		DontDestroyOnLoad(this.gameObject);
+		//DontDestroyOnLoad(this.gameObject);
 	}
 
 	void Start()
 	{
-		Score = 0;
+		score = 0;
 	}
 
 	void Update()
@@ -46,9 +49,9 @@ public class GameManager : MonoBehaviour
 
 	public void setScore(int value)
 	{
-		Score += value;
-		scoreText.text = "Score: " + Score;
-		Debug.Log("SCORE: " + Score);
+		score += value;
+		scoreText.text = "Score: " + score;
+		Debug.Log("SCORE: " + score);
 	}
 
 	public void setTimer()
@@ -63,7 +66,25 @@ public class GameManager : MonoBehaviour
 				roundOver = true;
 				timerText.text = "Round Complete";
 				Debug.Log("Round Over");
+				checkGameStatus();
 			}
 		}
+	}
+
+	public void checkGameStatus()
+	{
+		if(score >= scoreRequired)
+		{
+			Debug.Log("You win!");
+		}
+		else
+		{
+			Debug.Log("Your tribe is dead. You lose.");
+		}
+	}
+
+	public void restartGame()
+	{
+		SceneManager.LoadScene(0);
 	}
 }
