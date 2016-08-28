@@ -6,6 +6,8 @@ using System.Collections;
 public class ProjectileController : MonoBehaviour
 {
 	//mass, drag per weapon
+	public float torque;
+	public float spinningSpeed;
 
 	//audio
 	public AudioClip thrownSfx;
@@ -20,7 +22,9 @@ public class ProjectileController : MonoBehaviour
 		myAudio = GetComponent<AudioSource>();
 
 		myAudio.PlayOneShot(thrownSfx, 0.6f);
+		myRB.AddRelativeTorque(Vector3.right * spinningSpeed);
 	}
+
 
 	void OnCollisionEnter(Collision other)
 	{
