@@ -1,0 +1,86 @@
+TODO
+
+x create player (caveman)
+	- move arm with player (p3)
+	- add graphics/model (p2)
+	- collect animals during play (p2/3)
+	
+- create enemy
+	x die
+	- health (p2)
+	x hit
+	- die fx
+	- movement
+	x spawn
+	- despawn
+	
+x create weapon
+	x axe
+	  - rotate on throw (p3)
+	  - blood splat (p2)
+	  - mass, drag, gravity
+	x decay after throw
+	x stick on hit (p2)
+	  - [bug] fix scale issue on hit
+	- remove lifetime script on hits or in general
+	  
+x script throw
+	x raycast
+	x add physics for thrown item
+	- switch weapons
+	
+- create obstacles
+	- trees (sticky weapon)
+	- rocks (no stick)
+
+- gameplay
+	- score
+	- day timer
+
+- sound fx
+	- hit sfx
+	- throw sfx
+	- hurt sfx
+
+- managers
+	- spawn
+	- game
+	- weapons
+	
+	
+
+to have a playable game
+	x throw weapons
+	x hit enemy
+	x spawn enemys
+	- scoring
+	- timer
+	- win/lose/reset
+	- sounds
+
+duck hunt
+- caveman
+- enemies
+	- rabbits
+	- dinos
+	- elk
+	- ducks
+- distance hits
+- weapons
+	- axe throw
+	- spear
+	- fire
+	- bow (stretch)
+
+caveman uses weapons/tools and takes down beasts for food (tribal food score, day timer for end of level (sun rise/set)
+
+thrown weapons at enemies with physics for distance
+
+different scenes with blockers on it
+
+raycast for throwing
+	- strength throwing bar
+
+gravity
+mass
+drag

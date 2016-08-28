@@ -16,11 +16,13 @@ public class ProjectileController : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
 	{
-		Debug.Log(other.gameObject.name + " tag: " + other.gameObject.tag);
+		Debug.Log(gameObject.name + ": " + other.gameObject.name + " tag: " + other.gameObject.tag);
 		if(other.gameObject.tag == "Hitable")
 		{
 			myRB.isKinematic = true;
 			myRB.useGravity = false;
+
+			gameObject.transform.SetParent(other.gameObject.transform);
 		}
 	}
 }
