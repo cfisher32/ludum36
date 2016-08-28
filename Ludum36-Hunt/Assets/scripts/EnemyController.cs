@@ -1,3 +1,5 @@
+//cmf
+
 using UnityEngine;
 using System.Collections;
 
@@ -34,8 +36,6 @@ public class EnemyController : MonoBehaviour {
 			}
 		}
 	}
-
-	//move pattern, random
 
 	void TakeDamage()
 	{

@@ -1,8 +1,11 @@
+//cmf
+
 using UnityEngine;
 using System.Collections;
 
 public class EnemyMovement : MonoBehaviour {
 
+	//move pattern, random
 	void Update()
 	{
 		Mover();

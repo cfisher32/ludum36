@@ -1,9 +1,18 @@
+//cmf
+
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+	public int Score { get; set; }
+	public bool playerIsDead { get; set; }
+	public Text scoreText;
+	public Text timerText;
+	public float roundLeft = 5.0f;
+	public bool roundOver = false;
+
 	private static GameManager _instance;
 
 	public static GameManager Instance
@@ -18,13 +27,6 @@ public class GameManager : MonoBehaviour
 			return _instance;
 		}
 	}
-
-	public int Score { get; set; }
-	public bool playerIsDead { get; set; }
-	public Text scoreText;
-	public Text timerText;
-	public float roundLeft = 5.0f;
-	public bool roundOver = false;
 
 	void Awake()
 	{
