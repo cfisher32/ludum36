@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
 	public int Score { get; set; }
 	public bool playerIsDead { get; set; }
 	public Text scoreText;
+	public Text timerText;
+	public float roundLeft = 5.0f;
+	public bool roundOver = false;
 
 	void Awake()
 	{
@@ -34,9 +37,31 @@ public class GameManager : MonoBehaviour
 		Score = 0;
 	}
 
-	public void SetScore(int value)
+	void Update()
+	{
+		setTimer();
+	}
+
+	public void setScore(int value)
 	{
 		Score += value;
 		scoreText.text = "Score: " + Score;
+		Debug.Log("SCORE: " + Score);
+	}
+
+	public void setTimer()
+	{
+		if (!roundOver)
+		{
+			roundLeft -= Time.deltaTime;
+			timerText.text = "Time Left: " + roundLeft;
+
+			if (roundLeft <= 0)
+			{
+				roundOver = true;
+				timerText.text = "Round Complete";
+				Debug.Log("Round Over");
+			}
+		}
 	}
 }

@@ -13,6 +13,7 @@ x create player (caveman)
 	- movement
 	x spawn
 	- despawn
+	- correct mass
 	
 x create weapon
 	x axe
@@ -34,7 +35,7 @@ x script throw
 	- rocks (no stick)
 
 - gameplay
-	- score
+	x score
 	- day timer
 
 - sound fx
@@ -53,7 +54,7 @@ to have a playable game
 	x throw weapons
 	x hit enemy
 	x spawn enemys
-	- scoring
+	x scoring
 	- timer
 	- win/lose/reset
 	- sounds

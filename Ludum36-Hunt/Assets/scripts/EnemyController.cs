@@ -42,8 +42,6 @@ public class EnemyController : MonoBehaviour {
 		
 		myRend.material.SetColor("_Color", hitColor);
 		isDead = true;
-		//GameManager.Instance.Score += value;
-		GameManager.Instance.SetScore(value);
-		Debug.Log("SCORE: " + GameManager.Instance.Score);
+		GameManager.Instance.setScore(value);
 	}
 }
