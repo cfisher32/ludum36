@@ -95,10 +95,10 @@ public class GameManager : MonoBehaviour
 
 	void roundComplete()
 	{
+		Debug.Log("Round Over");
+
 		roundOver = true;
 		timerText.text = "Round Complete";
-
-		Debug.Log("Round Over");
 		checkGameStatus();
 	}
 
