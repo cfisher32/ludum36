@@ -5,6 +5,8 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour {
 
+	public bool isMovingRight = false;
+
 	//move pattern, random
 	void Update()
 	{
@@ -24,6 +26,11 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Mover()
 	{
+		if(!isMovingRight)
+		{
+			Vector3 newDir = new Vector3(-1, direction.y, direction.z);
+			direction = newDir;
+		}
 		transform.position += direction * speed * Time.deltaTime;
 	}
 

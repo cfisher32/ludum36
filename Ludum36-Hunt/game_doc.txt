@@ -10,7 +10,8 @@ x create player (caveman)
 	- health (p2)
 	x hit
 	- die fx
-	- movement
+	x movement
+	  - adv ai
 	x spawn
 	- despawn
 	- correct mass
@@ -19,7 +20,7 @@ x create player (caveman)
 	
 x create weapon
 	x axe
-	  - rotate on throw (p3)
+	  x rotate on throw (p3)
 	  - blood splat (p2)
 	  - mass, drag, gravity
 	x decay after throw
@@ -39,17 +40,18 @@ x script throw
 
 - gameplay
 	x score
+	x timer
 	- day timer
 
 - sound fx
-	- hit sfx
-	- throw sfx
-	- hurt sfx
+	x hit sfx
+	x throw sfx
+	x hurt sfx
 	- death
 
 - managers
 	- spawn
-	- game
+	x game
 	- weapons
 	
 	

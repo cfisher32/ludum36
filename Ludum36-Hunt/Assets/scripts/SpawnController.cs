@@ -7,6 +7,7 @@ public class SpawnController : MonoBehaviour {
 
 	public float spawnRate = 5.0f;
 	public GameObject enemy;
+	public bool spawnFacingRight = true;
 
 	void Start()
 	{
@@ -15,6 +16,7 @@ public class SpawnController : MonoBehaviour {
 
 	void Spawn()
 	{
-		Instantiate(enemy, transform.position, Quaternion.identity);
+		GameObject obj = (GameObject)Instantiate(enemy, transform.position, Quaternion.identity);
+		obj.GetComponent<EnemyMovement>().isMovingRight = spawnFacingRight;
 	}
 }
