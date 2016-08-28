@@ -7,12 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public int score { get; set; }
-	public bool playerIsDead { get; set; }
 	public Text scoreText;
 	public Text timerText;
+	public Text gameMessage;
+	public Canvas hud;
+
+	public int score { get; set; }
+	public bool playerIsDead { get; set; }
 	public float roundLeft = 5.0f;
 	public bool roundOver = false;
+	public bool isGameOver = false;
+	public float restartTimer;
+	public float restartTimerDelay = 5.0f;
 
 	public int scoreRequired = 5;
 
@@ -44,14 +50,28 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
-		setTimer();
+		if (!isGameOver)
+		{
+			setTimer();
+		}
+		else
+		{
+			restartTimer += Time.deltaTime;
+			if(restartTimer >= restartTimerDelay)
+			{
+				restartGame();
+			}
+		}
 	}
 
 	public void setScore(int value)
 	{
-		score += value;
-		scoreText.text = "Score: " + score;
-		Debug.Log("SCORE: " + score);
+		if (!isGameOver)
+		{
+			score += value;
+			scoreText.text = "Score: " + score;
+			Debug.Log("SCORE: " + score);
+		}
 	}
 
 	public void setTimer()
@@ -63,28 +83,39 @@ public class GameManager : MonoBehaviour
 
 			if (roundLeft <= 0)
 			{
-				roundOver = true;
-				timerText.text = "Round Complete";
-				Debug.Log("Round Over");
-				checkGameStatus();
+				roundComplete();
 			}
 		}
 	}
 
+	void roundComplete()
+	{
+		roundOver = true;
+		timerText.text = "Round Complete";
+
+		Debug.Log("Round Over");
+		checkGameStatus();
+	}
+
 	public void checkGameStatus()
 	{
-		if(score >= scoreRequired)
+		isGameOver = true;
+		hud.GetComponent<Animator>().SetBool("isGameOver", isGameOver); //anim for HUDCanvas
+
+		if (score >= scoreRequired)
 		{
 			Debug.Log("You win!");
+			gameMessage.text = "You Win!";
 		}
 		else
 		{
 			Debug.Log("Your tribe is dead. You lose.");
+			gameMessage.text = "You lose.";
 		}
 	}
 
 	public void restartGame()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(Application.loadedLevel);
 	}
 }
