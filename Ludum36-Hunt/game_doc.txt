@@ -51,13 +51,20 @@ x script throw
 	
 
 to have a playable game
+P1
 	x throw weapons
 	x hit enemy
 	x spawn enemys
 	x scoring
-	- timer
-	- win/lose/reset
+	x timer
+	x win/lose/reset
 	- sounds
+P2
+	- throw weapon models/images
+	- enemy models
+	- better UI
+	- better win/lose notice
+	- fonts
 
 duck hunt
 - caveman
