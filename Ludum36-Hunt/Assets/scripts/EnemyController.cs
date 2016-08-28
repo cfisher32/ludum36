@@ -43,6 +43,11 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter()
+	{
+		DestroyObject(gameObject);
+	}
+
 	void OnDestroy()
 	{
 		GameManager.Instance.currentEnemyCount--;
