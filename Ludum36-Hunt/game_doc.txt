@@ -14,6 +14,8 @@ x create player (caveman)
 	x spawn
 	- despawn
 	- correct mass
+	- boss enemies
+		- dino bonus round
 	
 x create weapon
 	x axe
@@ -33,6 +35,7 @@ x script throw
 - create obstacles
 	- trees (sticky weapon)
 	- rocks (no stick)
+	- other hunters (p4)
 
 - gameplay
 	x score
@@ -42,6 +45,7 @@ x script throw
 	- hit sfx
 	- throw sfx
 	- hurt sfx
+	- death
 
 - managers
 	- spawn
