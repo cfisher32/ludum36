@@ -62,7 +62,7 @@ P1
 	x scoring
 	x timer
 	x win/lose/reset
-	- sounds
+	x sounds
 P2
 	- throw weapon models/images
 	- enemy models

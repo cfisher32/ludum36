@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 	public Text timerText;
 	public Text gameMessage;
 	public Canvas hud;
+	public AudioClip winSfx;
+	public AudioClip loseSfx;
 
 	public int score { get; set; }
 	public bool playerIsDead { get; set; }
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
 	public bool isGameOver = false;
 	public float restartTimer;
 	public float restartTimerDelay = 5.0f;
+
+	AudioSource myAudio;
 
 	public int scoreRequired = 5;
 
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		score = 0;
+		myAudio = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -106,16 +111,18 @@ public class GameManager : MonoBehaviour
 		{
 			Debug.Log("You win!");
 			gameMessage.text = "You Win!";
+			myAudio.PlayOneShot(winSfx);
 		}
 		else
 		{
 			Debug.Log("Your tribe is dead. You lose.");
 			gameMessage.text = "You lose.";
+			myAudio.PlayOneShot(loseSfx);
 		}
 	}
 
 	public void restartGame()
 	{
-		SceneManager.LoadScene(Application.loadedLevel);
+		SceneManager.LoadScene(0);
 	}
 }

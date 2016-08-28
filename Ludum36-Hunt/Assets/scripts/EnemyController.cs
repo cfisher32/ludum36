@@ -9,13 +9,19 @@ public class EnemyController : MonoBehaviour {
 	public bool isDead = false;
 	public int value = 1;
 
+	//audio
+	public AudioClip hitSfx;
+	public AudioClip deadSfx;
+
 	Renderer myRend;
 	Color orgColor;
+	AudioSource myAudio;
 
 	void Start()
 	{
 		myRend = GetComponent<Renderer>();
 		orgColor = myRend.material.GetColor("_Color");
+		myAudio = GetComponent<AudioSource>();
 	}
 
 	void OnCollisionEnter(Collision other)
@@ -39,7 +45,8 @@ public class EnemyController : MonoBehaviour {
 
 	void TakeDamage()
 	{
-		
+		myAudio.PlayOneShot(hitSfx, 0.3f);
+
 		myRend.material.SetColor("_Color", hitColor);
 		isDead = true;
 		GameManager.Instance.setScore(value);
