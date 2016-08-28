@@ -43,6 +43,11 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+	void OnDestroy()
+	{
+		GameManager.Instance.currentEnemyCount--;
+	}
+
 	void TakeDamage()
 	{
 		myAudio.PlayOneShot(hitSfx, 0.3f);

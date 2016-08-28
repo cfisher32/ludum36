@@ -21,10 +21,16 @@ public class GameManager : MonoBehaviour
 	public bool isGameOver = false;
 	public float restartTimer;
 	public float restartTimerDelay = 5.0f;
-
-	AudioSource myAudio;
+	public float spawnTimer;
+	public float spawnTimerDelay = 2.0f;
 
 	public int scoreRequired = 5;
+	public int enemyCountMax = 10;
+	public int currentEnemyCount = 0;
+	public float spawnRate = 2.0f;
+
+	AudioSource myAudio;
+	public SpawnManager spawnManager;
 
 	private static GameManager _instance;
 
@@ -49,14 +55,24 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
-		score = 0;
 		myAudio = GetComponent<AudioSource>();
+		//spawner = spawnManager.GetComponent<SpawnManager>();
+
+		InvokeRepeating("spawnEnemy", spawnRate, spawnRate); //set so it only triggers another spawn
+
+		score = 0;
 	}
 
 	void Update()
 	{
 		if (!isGameOver)
 		{
+			//if (Time.time > spawnTimer)
+			//{
+			//	spawnTimer = Time.time + spawnTimerDelay;
+			//	spawnEnemy();
+			//}
+
 			setTimer();
 		}
 		else
@@ -66,6 +82,15 @@ public class GameManager : MonoBehaviour
 			{
 				restartGame();
 			}
+		}
+	}
+
+	public void spawnEnemy()
+	{
+		if(!isGameOver && currentEnemyCount < enemyCountMax)
+		{
+			spawnManager.spawnEnemy();
+			currentEnemyCount++;
 		}
 	}
 

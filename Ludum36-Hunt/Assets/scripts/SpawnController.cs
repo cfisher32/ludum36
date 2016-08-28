@@ -11,10 +11,10 @@ public class SpawnController : MonoBehaviour {
 
 	void Start()
 	{
-		InvokeRepeating("Spawn", spawnRate, spawnRate);
+		//InvokeRepeating("Spawn", spawnRate, spawnRate);
 	}
 
-	void Spawn()
+	public void Spawn()
 	{
 		GameObject obj = (GameObject)Instantiate(enemy, transform.position, Quaternion.identity);
 		obj.GetComponent<EnemyMovement>().isMovingRight = spawnFacingRight;
