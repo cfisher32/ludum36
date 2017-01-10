@@ -1,5 +1,7 @@
 TODO
 
+7hrs for compo, jam 1 day 7hr
+
 x create player (caveman)
 	- move arm with player (p3)
 	- add graphics/model (p2)
@@ -9,11 +11,11 @@ x create player (caveman)
 	x die
 	- health (p2)
 	x hit
-	- die fx
+	- die fx (p2)
 	x movement
 	  - adv ai
 	x spawn
-	- despawn
+	x despawn
 	- correct mass
 	- boss enemies
 		- dino bonus round
@@ -66,11 +68,15 @@ P1
 	x win/lose/reset
 	x sounds
 P2
+	x movement right/left
+	- ai thinking and movement
 	- throw weapon models/images
 	- enemy models
 	- better UI
 	- better win/lose notice
 	- fonts
+	- different enemies
+
 
 duck hunt
 - caveman
